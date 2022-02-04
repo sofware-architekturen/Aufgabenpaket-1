@@ -1,0 +1,46 @@
+(a) Die wesentliche Begriffe der Software-Architektur sind Bausteine und Schnittstellen. Strukturierungen und Beziehungen zwischen Bausteine und Schnittstellen bilden die grundlegende Prinzipien der Software-Architektur. Schnittstellen beinhalten/beschreiben Eigenschaften und Funktionalitäten eines Systems, die mittels einen oder mehreren Bausteinen implementiert werden können und somit auch gekapselt, gleichzeitig kann ein Baustein, eine oder mehrere Schnittstellen implementieren. Wird eine Schnittstelle von mehreren Bausteine implementiert, dann können die Bausteine beim Bedarf ausgetauscht werden.
+
+(b)
+    • Funktionalität: Die Anwendung muss technisch die Aufgaben angemessen und richtig erledigen.
+    • Zuverlässigkeit: Es sollen keine technischen Fehler auftreten, Benutzungsfehler sollen toleriert werden und leicht korrigierbar sein.
+    • Verwendbarkeit: Das System soll leicht verständlich und erlernbar sein.
+    • Effizienz: Die Aufgaben sollen angemessen schnell und mit möglichst wenig Verbrauch von Rechenzeit und Speicherplatz durchgeführt werden.
+    • Pflegbarkeit: Die Anwendung muss gut dokumentiert und im Ablauf leicht nachvollziehbar sein und muss sich problemlos ändern lassen.
+    • Portierbarkeit: Es soll möglich sein, das System an andere Gegebenheiten anzupassen und es gegebenenfalls auch zu ersetzen.
+
+(c)
+    • Vom Chaos zur Struktur => Strukturierung von Komponenten bzw.  Zerlegung von Systemen.
+    • Verteilte Systeme => Problemlösungen, die bei einer physikalisch verteilte Systemen auftreten.
+    • Interaktive Systeme =>Strukturierung von interaktiven Software-Systemen.
+    • Adaptierbare Systeme => Lösungskonzepte für Systeme, die sich auf ändernde funktionale Anforderungen/ Technologien einstellen müssen.
+
+(d) 
+Architekturmuster:
+
+Broker(Vermittler)
+Das Broker-Muster dient zu Koordinierung der Komunikation zwischen verteilten Komponenten. Dazu gehört dass die Komponenten sich gegenseitig finden und komunizieren können.
+
+Client-Server Muster
+Ist ein Architekturkonzept zur Verteilung von Diensten und Aufgaben in einem Netzwerk.
+Die Interaktion zwischen Client und Server sieht vor, dass der Client eine Anfrage (Request) an den Server stellt. Der Server wertet die Anfrage aus und liefert eine Antwort bzw. die Daten zurück (Response oder Reply).
+
+Entwurfsmuster:
+
+Proxy(Vertretter)
+Wird verwendet um einen lokalen Stellvertreter zu einem entfernten Objekt zu haben.
+Implementiert die gleiche Schnittstelle wie das “echte” Objekt.
+
+Observer(Beobachter)
+Ein Observer baut eine Beziehung zwischen einem Subjekt und seinen Beobachtern auf, so dass Zustandsänderungen mitgeteilt werden.
+
+
+(e)
+RMI Begrif:
+Unter RMI(Remote Method Invocation) versteht man das Methodenfernaufruf also Aufruf einer Methode eines entfernten Java-Objekts. Dabei kann das Objekt sich in einer anderen JVM befinden , die ihrerseits auf einem entfernten Rechner oder auf dem lokalen Rechner laufen kann.
+
+RMI Ablauf:
+    • Server registriert das Remote-Object bei der RMI-Registry unter eindeutigen Namen.
+    • Client sieht bei der RMI-Registry unter diesem Namen nach und bekommt eine Referenz, die seinem Remote Interface entsprechen muss.
+    • Client ruft eine Methode aus der Objektreferenz. Dabei kann ein Objekt einer Klasse XYZ übergeben werden, die der JVM des Servers bisher nicht bekannt ist.In diesem Fall lädt die Server-JVM die Klasse XYZ dynamisch nach, beispielsweise vom Webserver des Client.
+    • Die Server-JVM führt die Methode auf dem Remote-Object aus, wobei evtl. dynamisch geladener Fremdcode benutzt wird (z.B. Methoden von XYZ), der im Allgemeinen Sicherheitsrestriktionen unterliegt.
+    • Dem Client werden die Rückgabewerte dieses Aufrufes gesendet, oder der Client bekommt eine Fehlermeldung.
