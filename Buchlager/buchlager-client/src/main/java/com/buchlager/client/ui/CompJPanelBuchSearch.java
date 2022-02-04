@@ -1,4 +1,4 @@
-package app.ui;
+package com.buchlager.client.ui;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;

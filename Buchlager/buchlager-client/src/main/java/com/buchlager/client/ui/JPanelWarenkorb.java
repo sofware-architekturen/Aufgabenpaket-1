@@ -1,4 +1,4 @@
-package app.ui;
+package com.buchlager.client.ui;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -13,9 +13,9 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import buchlager.facade.BuchlagerFacade;
-import buchlager.facade.BuchlagerFacadeException;
-import buchlager.model.Buch;
+import com.buchlager.server.facade.BuchlagerFacade;
+import com.buchlager.server.facade.BuchlagerFacadeException;
+import com.buchlager.server.model.Buch;
 
 
 public class JPanelWarenkorb extends JPanel

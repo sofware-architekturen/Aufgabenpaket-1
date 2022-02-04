@@ -1,4 +1,4 @@
-package buchlager.facade;
+package com.buchlager.server.facade;
 
 
 public class BuchlagerFacadeException extends Exception

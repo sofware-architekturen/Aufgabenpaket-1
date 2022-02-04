@@ -1,4 +1,4 @@
-package buchlager.model;
+package com.buchlager.server.model;
 
 import java.io.Serializable;
 

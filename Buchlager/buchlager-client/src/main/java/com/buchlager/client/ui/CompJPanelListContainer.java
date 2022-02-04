@@ -1,4 +1,4 @@
-package app.ui;
+package com.buchlager.client.ui;
 
 import java.awt.BorderLayout;
 import java.awt.event.MouseListener;
@@ -8,10 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
-import buchlager.model.Buch;
-
-
-
+import com.buchlager.server.model.Buch;
+import com.buchlager.server.model.Buch;
 
 
 public class CompJPanelListContainer extends JPanel

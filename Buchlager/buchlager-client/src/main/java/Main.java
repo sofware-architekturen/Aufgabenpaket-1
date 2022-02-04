@@ -1,8 +1,6 @@
-package app;
-
 import javax.swing.SwingUtilities;
 
-import app.ui.BuchlagerView;
+import com.buchlager.client.ui.BuchlagerView;
 
 public class Main
 {

@@ -1,4 +1,4 @@
-package buchlager.model;
+package com.buchlager.server.model;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -7,27 +7,28 @@ import java.util.Set;
 
 
 
-public class Verlag implements Serializable
+
+public class Autor implements Serializable
 {
-	private static final long serialVersionUID = 0x4444444;
+	private static final long serialVersionUID = 0x2222222;
 
 	private int id = 0;
-	private String name = null;
-	private Adresse adr = null;
+	private String vorname = null;
+	private String nachname = null;
 
 	private Set<Buch> buecher = null;
 
-	public Verlag()
+	public Autor()
 	{
 		super();
 	}
 
-	public Verlag(int id, String name, Adresse adresse)
+	public Autor(int id, String vorname, String nachname)
 	{
 		super();
 		this.id = id;
-		this.name = name;
-		this.adr = adresse;
+		this.vorname = vorname;
+		this.nachname = nachname;
 
 		this.buecher = new HashSet<>();
 	}
@@ -38,16 +39,16 @@ public class Verlag implements Serializable
 		return this.id;
 	}
 
-
-  public String getName()
+  public String getVorname()
 	{
-		return this.name;
+		return this.vorname;
 	}
 
 
-  public Adresse getAdresse()
+
+  public String getNachname()
 	{
-		return this.adr;
+		return this.nachname;
 	}
 
 
@@ -61,12 +62,23 @@ public class Verlag implements Serializable
 	{
 		if( this.buecher == null ) return;
 
-		this.buecher.add(buch);
+		if( buch.getAutoren().contains(this) == false )
+		{
+			((Buch) buch).addAutorRelationship( this );
+		}
+		this.buecher.add(  buch );
+	}
+
+	protected void addBuchRelationship(Buch buch)
+	{
+		if( this.buecher == null ) return;
+
+		this.buecher.add( buch );
 	}
 
 	public String toString()
 	{
-		return name;
+		return vorname + " " + nachname;
 	}
 
   @Override
@@ -87,7 +99,7 @@ public class Verlag implements Serializable
       return false;
     if (getClass() != obj.getClass())
       return false;
-    Verlag other = (Verlag) obj;
+    Autor other = (Autor) obj;
     if (id != other.id)
       return false;
     return true;

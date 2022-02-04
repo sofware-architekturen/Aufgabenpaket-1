@@ -1,4 +1,4 @@
-package app.ui;
+package com.buchlager.client.ui;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import javax.swing.ListModel;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 
-import buchlager.model.Buch;
+import com.buchlager.server.model.Buch;
 
 
 public class CompJListModelBuchliste implements ListModel<Buch>

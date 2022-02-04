@@ -1,4 +1,4 @@
-package app.ui;
+package com.buchlager.client.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,8 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import buchlager.model.Autor;
-import buchlager.model.Buch;
+import com.buchlager.server.model.Autor;
+import com.buchlager.server.model.Buch;
 
 
 

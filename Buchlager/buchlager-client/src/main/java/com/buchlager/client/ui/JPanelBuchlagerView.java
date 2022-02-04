@@ -1,4 +1,4 @@
-package app.ui;
+package com.buchlager.client.ui;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -9,8 +9,8 @@ import java.util.Collection;
 
 import javax.swing.JPanel;
 
-import buchlager.facade.BuchlagerFacade;
-import buchlager.model.Buch;
+import com.buchlager.server.facade.BuchlagerFacade;
+import com.buchlager.server.model.Buch;
 
 
 

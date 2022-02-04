@@ -1,4 +1,4 @@
-package buchlager.facade;
+package com.buchlager.server.facade;
 
 import static java.util.stream.Collectors.toList;
 
@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Random;
 
-import buchlager.model.Buch;
-import buchlager.model.ModelFactory;
+import com.buchlager.server.model.Buch;
+import com.buchlager.server.model.ModelFactory;
 
 /**
  * Die Klasse <source>BuchlagerFacade</source> repraesentiert die Schnittstelle

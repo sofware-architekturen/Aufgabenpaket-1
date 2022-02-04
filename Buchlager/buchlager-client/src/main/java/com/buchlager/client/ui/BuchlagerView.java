@@ -1,10 +1,10 @@
-package app.ui;
+package com.buchlager.client.ui;
 
 import java.awt.CardLayout;
 
 import javax.swing.JFrame;
 
-import buchlager.model.Buch;
+import com.buchlager.server.model.Buch;
 
 
 
