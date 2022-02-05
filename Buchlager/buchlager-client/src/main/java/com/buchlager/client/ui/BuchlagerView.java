@@ -1,10 +1,15 @@
 package com.buchlager.client.ui;
 
 import java.awt.CardLayout;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 import javax.swing.JFrame;
 
-import com.buchlager.server.model.Buch;
+import com.buchlager.core.interfaces.IBuchlagerRemoteFacade;
+import com.buchlager.core.model.Buch;
 
 
 
@@ -17,15 +22,17 @@ public class BuchlagerView extends JFrame
   private JPanelBuchdetail buchdetailView = null;
   private JPanelWarenkorb warenkorbView = null;
   private CardLayout cardLayout = null;
+  private IBuchlagerRemoteFacade buchlagerRemoteFacade;
 
   public BuchlagerView()
   {
     super("Buchlager");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    this.initRemoteFacade();
 
-    this.buchlagerSearchView = new JPanelBuchlagerView(this);
+    this.buchlagerSearchView = new JPanelBuchlagerView(this, buchlagerRemoteFacade);
     this.buchdetailView = new JPanelBuchdetail(this);
-    this.warenkorbView = new JPanelWarenkorb(this);
+    this.warenkorbView = new JPanelWarenkorb(this, buchlagerRemoteFacade);
 
     this.cardLayout = new CardLayout(20,20);
     this.getContentPane().setLayout(this.cardLayout);
@@ -59,4 +66,17 @@ public class BuchlagerView extends JFrame
     this.cardLayout.show(this.getContentPane(), "WARENKORB");
   }
 
+  private void initRemoteFacade(){
+    Registry registry = null;
+    try {
+      registry = LocateRegistry.getRegistry();
+      this.buchlagerRemoteFacade = (IBuchlagerRemoteFacade) registry.lookup("rmi://methods");
+    } catch (RemoteException e) {
+      e.printStackTrace();
+    } catch (NotBoundException e) {
+      e.printStackTrace();
+    }
+
+  }
 }
+

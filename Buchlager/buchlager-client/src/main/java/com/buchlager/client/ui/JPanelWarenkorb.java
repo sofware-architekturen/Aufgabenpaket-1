@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.Enumeration;
 
 import javax.swing.DefaultListModel;
@@ -13,9 +14,8 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import com.buchlager.server.facade.BuchlagerFacade;
-import com.buchlager.server.facade.BuchlagerFacadeException;
-import com.buchlager.server.model.Buch;
+import com.buchlager.core.model.Buch;
+import com.buchlager.core.interfaces.IBuchlagerRemoteFacade;
 
 
 public class JPanelWarenkorb extends JPanel
@@ -30,11 +30,14 @@ public class JPanelWarenkorb extends JPanel
   private JButton backButton = new JButton("Zurück");
   private JButton kaufenButton = new JButton("Kaufen");
 
+  private IBuchlagerRemoteFacade buchlagerRemoteFacade = null;
 
-  public JPanelWarenkorb(BuchlagerView buchlagerView)
+
+  public JPanelWarenkorb(BuchlagerView buchlagerView, IBuchlagerRemoteFacade buchlagerRemoteFacade)
   {
     super();
 
+    this.buchlagerRemoteFacade = buchlagerRemoteFacade;
     this.buchlagerView = buchlagerView;
     this.content.setModel(  this.model );
     this.setLayout( new BorderLayout() );
@@ -71,10 +74,10 @@ public class JPanelWarenkorb extends JPanel
           Buch buch = en.nextElement();
           try
           {
-            BuchlagerFacade.getInstance().bestandAusbuchen(buch.getId(), 1);
+            buchlagerRemoteFacade.bestandAusbuchen(buch.getId(), 1);
             System.out.println("Das Buch " + buch.getTitel() + " wird versendet");
           }
-          catch (BuchlagerFacadeException e1)
+          catch (RemoteException e1)
           {
             System.out.println("Das Buch " + buch.getTitel() + " zur Zeit nicht lieferbar");
           }

@@ -5,13 +5,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.Collection;
 
 import javax.swing.JPanel;
 
-import com.buchlager.server.facade.BuchlagerFacade;
-import com.buchlager.server.model.Buch;
-
+import com.buchlager.core.interfaces.IBuchlagerRemoteFacade;
+import com.buchlager.core.model.Buch;
 
 
 public class JPanelBuchlagerView extends JPanel
@@ -23,11 +26,13 @@ public class JPanelBuchlagerView extends JPanel
   private CompJPanelBuchSearch jSearchComp = null;
   private CompJPanelListContainer jListContainer = null;
   private CompJPanelButtonBar jButtonBar = null;
+  private IBuchlagerRemoteFacade buchlagerRemoteFacade = null;
 
-  public JPanelBuchlagerView(BuchlagerView buchlagerView)
+  public JPanelBuchlagerView(BuchlagerView buchlagerView, IBuchlagerRemoteFacade buchlagerRemoteFacade)
   {
     super();
 
+    this.buchlagerRemoteFacade = buchlagerRemoteFacade;
     this.buchlagerView = buchlagerView;
 
     this.jSearchComp = new CompJPanelBuchSearch();
@@ -64,7 +69,12 @@ public class JPanelBuchlagerView extends JPanel
       public void actionPerformed(ActionEvent e)
       {
         String input = jSearchComp.getTextFieldInput();
-        Collection<Buch> buecher =  BuchlagerFacade.getInstance().findBuecherVonAutor(input);
+        Collection<Buch> buecher = null;
+        try {
+          buecher = buchlagerRemoteFacade.findBuecherVonAutor(input);
+        } catch (RemoteException ex) {
+          ex.printStackTrace();
+        }
         if( buecher != null )
         {
           addBuecher(buecher);

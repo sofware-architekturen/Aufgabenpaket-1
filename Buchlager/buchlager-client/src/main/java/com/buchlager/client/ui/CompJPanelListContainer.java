@@ -8,8 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
-import com.buchlager.server.model.Buch;
-import com.buchlager.server.model.Buch;
+import com.buchlager.core.model.Buch;
 
 
 public class CompJPanelListContainer extends JPanel

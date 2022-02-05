@@ -9,8 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.buchlager.server.model.Autor;
-import com.buchlager.server.model.Buch;
+import com.buchlager.core.model.Autor;
+import com.buchlager.core.model.Buch;
 
 
 

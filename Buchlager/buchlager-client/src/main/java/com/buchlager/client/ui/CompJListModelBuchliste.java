@@ -7,7 +7,7 @@ import javax.swing.ListModel;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 
-import com.buchlager.server.model.Buch;
+import com.buchlager.core.model.Buch;
 
 
 public class CompJListModelBuchliste implements ListModel<Buch>
