@@ -1,8 +1,9 @@
 package com.buchlager.server.facade;
 
 
-public class BuchlagerFacadeException extends Exception
-{
+import java.rmi.RemoteException;
+
+public class BuchlagerFacadeException extends RemoteException {
 	private static final long serialVersionUID = 0x9999999;
 	
 	public BuchlagerFacadeException()
