@@ -10,7 +10,6 @@ import javax.swing.ListSelectionModel;
 
 import com.buchlager.core.model.Buch;
 
-
 public class CompJPanelListContainer extends JPanel
 {
   private static final long serialVersionUID = 1739945859088359874L;

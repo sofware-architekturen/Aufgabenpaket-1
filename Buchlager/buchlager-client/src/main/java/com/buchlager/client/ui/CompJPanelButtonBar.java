@@ -6,8 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-
-
 public class CompJPanelButtonBar extends JPanel
 {
   private static final long serialVersionUID = 5219025587412926540L;

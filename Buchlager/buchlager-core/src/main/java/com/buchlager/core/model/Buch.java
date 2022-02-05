@@ -5,8 +5,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-
-
 public class Buch implements Serializable
 {
 	private static final long serialVersionUID = 0x3333333;

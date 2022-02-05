@@ -11,9 +11,6 @@ import javax.swing.JFrame;
 import com.buchlager.core.interfaces.IBuchlagerRemoteFacade;
 import com.buchlager.core.model.Buch;
 
-
-
-
 public class BuchlagerView extends JFrame
 {
   private static final long serialVersionUID = 3209504767472694065L;

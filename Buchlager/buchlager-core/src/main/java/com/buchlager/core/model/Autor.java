@@ -5,9 +5,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-
-
-
 public class Autor implements Serializable
 {
 	private static final long serialVersionUID = 0x2222222;

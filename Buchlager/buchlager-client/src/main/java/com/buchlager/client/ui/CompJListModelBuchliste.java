@@ -9,7 +9,6 @@ import javax.swing.event.ListDataListener;
 
 import com.buchlager.core.model.Buch;
 
-
 public class CompJListModelBuchliste implements ListModel<Buch>
 {
   private List<Buch> buchliste = new ArrayList<>();

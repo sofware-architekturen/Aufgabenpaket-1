@@ -2,8 +2,6 @@ package com.buchlager.core.model;
 
 import java.io.Serializable;
 
-
-
 public class Adresse implements Serializable
 {
 	private static final long serialVersionUID = 0x1111111;

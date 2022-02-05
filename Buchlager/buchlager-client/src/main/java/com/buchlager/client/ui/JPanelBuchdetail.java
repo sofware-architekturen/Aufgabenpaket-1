@@ -12,8 +12,6 @@ import javax.swing.JTextField;
 import com.buchlager.core.model.Autor;
 import com.buchlager.core.model.Buch;
 
-
-
 public class JPanelBuchdetail extends JPanel
 {
   private static final long serialVersionUID = -4265792354476543154L;
